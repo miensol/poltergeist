@@ -110,9 +110,9 @@ module Capybara::Poltergeist
           'SCRIPT_NAME'    => '',
           'PATH_INFO'      => '',
           'QUERY_STRING'   => '',
-          'SERVER_NAME'    => '127.0.0.1',
+          'SERVER_NAME'    => 'localhost',
           'SERVER_PORT'    => port.to_s,
-          'HTTP_ORIGIN'    => 'http://127.0.0.1:2000/',
+          'HTTP_ORIGIN'    => 'http://localhost:2000/',
           'rack.input'     => StringIO.new(socket.read(8))
         }
         parser.headers.each do |header, value|

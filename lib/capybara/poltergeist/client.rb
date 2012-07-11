@@ -31,7 +31,11 @@ module Capybara::Poltergeist
     def stop
       if pid
         begin
-          Process.kill('TERM', pid)
+		  if RUBY_PLATFORM =~ /mingw/ 
+			Process.kill('KILL', pid)
+		  else
+            Process.kill('TERM', pid)
+		  end
           Process.wait(pid)
         rescue Errno::ESRCH, Errno::ECHILD
           # Zed's dead, baby
